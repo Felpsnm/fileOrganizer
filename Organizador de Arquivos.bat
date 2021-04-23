@@ -31,41 +31,49 @@ set "fileFolders="Android" "Batch" "Isos" "Javascript" "HTML" "Office Access" "O
 
 set doc=C:\Users\%username%\Documents
 set dow=C:\Users\%username%\Downloads
-set pic=C:\Users\%username%\Pictures	
+set pic=C:\Users\%username%\Pictures
 set mus=C:\Users\%username%\Music
 set vid=C:\Users\%username%\Videos
 
 :://////////////////////////////////////////////////////////////////////////////
 
-:Criação_de_Pastas
-echo ---------------------------------------------------------------------------
-::(Área de Trabalho)Confere se as pastas existem e caso não existam cria elas
-
-for %%a in (%desktopFolders%) do (
-	cd %dirFolders%
-	IF /i NOT EXIST %%a (
-		md %%a
-		echo A pasta %%a ser  criada. 
-	) ELSE (
-		echo A pasta %%a j  est  criada	
+:Folder_Creation
+setlocal enabledelayedexpansion
+	echo ---------------------------------------------------------------------------
+	::(Área de Trabalho)Confere se as pastas existem e caso não existam cria elas
+	echo Área de Trabalho
+	echo.
+	for %%a in (%desktopFolders%) do (
+		set dirOFCDesk=%%a
+		set dirNoQuotesOFCDesk=!dirOFCDesk:"=!
+		cd %dirFolders%
+		IF /i NOT EXIST !dirOFCDesk! (
+			md !dirOFCDesk!
+			echo A pasta !dirNoQuotesOFCDesk! ser  criada.
+		) ELSE (
+			echo A pasta !dirNoQuotesOFCDesk! j  est  criada.
+		)
+	echo.
 	)
-echo.
-)
-echo ____________________________________________________________________________
-echo Pasta Arquivos:
-echo.
-for %%a in (%fileFolders%) do (
-	cd %dirFoldersFiles%
-	IF /i NOT EXIST %%a (
-		md %%a 
-		echo A pasta %%a ser  criada. 
-	) ELSE (
-		echo A pasta %%a j  est  criada	
+	echo ____________________________________________________________________________
+	echo Pasta Arquivos:
+	echo.
+	for %%a in (%fileFolders%) do (
+		set dirOFCArquivos=%%a
+		set dirNoQuotesOFCArquivos=!dirOFCArquivos:"=!
+		cd %dirFoldersFiles%
+		IF /i NOT EXIST !dirOFCArquivos! (
+			md !dirOFCArquivos! 
+			echo A pasta !dirNoQuotesOFCArquivos! ser  criada.
+		) ELSE (
+			echo A pasta !dirNoQuotesOFCArquivos! j  est  criada.
+		)
+	echo.
 	)
-echo.
-)
-echo ---------------------------------------------------------------------------
-pause
+	echo ---------------------------------------------------------------------------
+	pause
+	cls
+endlocal
 goto :Mover_Arquivos
 
 :://////////////////////////////////////////////////////////////////////////////
@@ -105,14 +113,14 @@ setlocal enabledelayedexpansion
 		if %%a equ %mus% (
 			set verif=mus
 			echo.
-			echo Áudios:
+			echo µudios:
 			echo %%a
 			echo.
 		)
 		if %%a equ %vid% (
 			set verif=vid
 			echo.
-			echo Vídeos:
+			echo V¡deos:
 			echo %%a
 			echo.
 		)
@@ -235,7 +243,7 @@ setlocal enabledelayedexpansion
 		echo.
 		echo ---------------------------------------------------------------------------
 		echo.
-		for %%b  in (*.3ga *.aac *.aiff *.amr *.ape *.arf *.asf *.asx *.cda *.dvf *.flac *.gp4 *.gp5 *.gpx *.logic *.m4a *.m4b *.m4p *.midi *.mp3 *.ogg *.opus *.pcm *.rec *.snd *.sng *.uax *.wav *.wma *.wpl *.zab) do (echo Arquivo movido: %%b && move "%%b" "%dirFolders%\Áudios")
+		for %%b  in (*.3ga *.aac *.aiff *.amr *.ape *.arf *.asf *.asx *.cda *.dvf *.flac *.gp4 *.gp5 *.gpx *.logic *.m4a *.m4b *.m4p *.midi *.mp3 *.ogg *.opus *.pcm *.rec *.snd *.sng *.uax *.wav *.wma *.wpl *.zab) do (echo Arquivo movido: %%b && move "%%b" "%dirFolders%\µudios")
 		echo.
 		echo ___________________________________________________________________________
 
@@ -265,48 +273,60 @@ setlocal enabledelayedexpansion
 		echo.
 		echo ---------------------------------------------------------------------------
 		echo.
-		for %%b  in (*.264 *.3g2 *.3gp *.arf *.asf *.asx *.avi *.bik *.dash *.dat *.dvr *.flv *.h264 *.m2t *.m2ts *.m4v *.mkv *.mod *.mov *.mp4 *.mpeg *.mpg *.mts *.ogv *.prproj *.rec *.rmvb *.swf *.tod *.tp *.ts *.vob *.webm *.wlmp *.wmv) do (echo Arquivo movido: %%b && move "%%b" "%dirFolders%\Vídeos")
+		for %%b  in (*.264 *.3g2 *.3gp *.arf *.asf *.asx *.avi *.bik *.dash *.dat *.dvr *.flv *.h264 *.m2t *.m2ts *.m4v *.mkv *.mod *.mov *.mp4 *.mpeg *.mpg *.mts *.ogv *.prproj *.rec *.rmvb *.swf *.tod *.tp *.ts *.vob *.webm *.wlmp *.wmv) do (echo Arquivo movido: %%b && move "%%b" "%dirFolders%\V¡deos")
 		echo.
 		if !verif!==dir (
+			set "verif="
 			echo ___________________________________________________________________________
 			echo.
 			echo Fim da µrea de Trabalho:
 			echo.
 			pause
+			cls
 		)
 		if !verif!==doc (
+			set "verif="
 			echo.
 			echo Fim dos Documentos:
 			echo.
 			pause
+			cls
 		)
 		if !verif!==dow (
+			set "verif="
 			echo ___________________________________________________________________________
 			echo.
 			echo Fim dos Downloads:
 			echo.
 			pause
+			cls
 		)
 		if !verif!==pic (
+			set "verif="
 			echo ___________________________________________________________________________
 			echo.
 			echo Fim das Imagens:
 			echo.
-			pause		
+			pause	
+			cls
 		)
 		if !verif!==mus (
+			set "verif="
 			echo ___________________________________________________________________________
 			echo.
-			echo Fim dos Áudios:
+			echo Fim dos µudios:
 			echo.
 			pause
+			cls
 		)
 		if !verif!==vid (
+			set "verif="
 			echo ___________________________________________________________________________
 			echo.
-			echo Fim dos Vídeos:
+			echo Fim dos V¡deos:
 			echo.
 			pause
+			cls
 			goto :Delete_Folders
 		)
 	)
@@ -318,49 +338,58 @@ endlocal
 cd %dirFolders%
 cls
 setlocal enabledelayedexpansion
-	for %%a in (%desktopFolders% %fileFolders%) do (
+	for %%a in (%fileFolders% %desktopFolders%) do (
+		set dirODF=%%a
+		set dirNoQuotesODF=!dirODF:"=!
 		set "dirCommandPath="
 		set /a "existFiles=0" 
+		set /a "numFiles=0"
+		set /a "numFolders=0"
 		echo.
-		dir %dirFolders% | find /i "DIR" | find /i %%a >nul
-		if %errorlevel% equ 1 (
-			set dirCommandPath=%dirFoldersFiles%
-			echo Pasta "Arquivos":
-			echo.
-		) 
-		if %errorlevel% equ 0 (
+		dir "%dirFolders%" | find /i "DIR" | find /i !dirODF! >nul
+		if !errorlevel! equ 0 (
 			set dirCommandPath=%dirFolders%
 			echo µrea de Trabalho:
 			echo.
 		)
-		echo Pasta %%a:
+		if !errorlevel! equ 1 (
+			set dirCommandPath=%dirFoldersFiles%
+			echo Pasta "Arquivos":
+			echo.
+		) 
+		echo Pasta !dirODF:"=!:
 		echo.
 		if defined dirCommandPath (
-			for /f %%b in ('dir !dirCommandPath!\%%a ^| find "arquivo(s)"') do (
-				echo.
-				for /f %%c in ('dir !dirCommandPath!\%%a ^| find "pasta(s)"') do (
-					set /a c=%%c-2
-					if %%b geq 1 (
-						set /a existFiles=999999 
-					) else (
-						if %%c geq 3 (
-							set /a existFiles=999999
-						)
-					)
-					if !existFiles! equ 999999 (
-						echo Tem %%b arquivos e !c! pastas na pasta %%a
-					) 
-					if not !existFiles! equ 999999 (
-						echo NÆo tem arquivos ou pastas na pasta %%a, ela ser  apagada
-						echo Apagando na Pasta arquivos...
-						echo %dirCommandPath%\%%a
-					)
+			for /f %%b in ('dir "!dirCommandPath!\!dirNoQuotesODF!" ^| find "arquivo(s)"') do (
+				set /a "numFiles=%%b"
+			)
+			for /f %%c in ('dir "!dirCommandPath!\!dirNoQuotesODF!" ^| find "pasta(s)"') do (
+                echo.
+                set /a "numFolders=%%c"
+                set /a "numFolders=!numFolders!-2"
+            )
+            if !numFiles! geq 1 (
+                set /a existFiles=1
+            ) else (
+                if !numFolders! geq 1 (
+                    set /a existFiles=1
+                )
+            )
+            if !existFiles! equ 1 (
+                echo Tem !numFiles! arquivos e !numFolders! pastas na pasta !dirNoQuotesODF!
+            ) else (
+				if not !existFiles! equ 1 (
+					echo NÆo tem arquivos ou pastas na pasta !dirNoQuotesODF!, ela ser  apagada
+					echo Apagando na Pasta arquivos...
+					rd "!dirCommandPath!\!dirNoQuotesODF!"
 				)
 			)
+		) else (
+			echo Erro ao definir dirCommandPath
+			pause>nul
 		)
 		echo.
 		pause>nul
 		cls
 	)
-endlocal
-pause>nul
+endlocal	
