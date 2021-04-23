@@ -107,159 +107,121 @@ goto Area de Trabalho
 :://////////////////////////////////////////////////////////////////////////////
 :Mover Arquivos
 
+cd %dir%
+
 :: Movendo Aplicativos
+
 echo ___________________________________________________________________________
 echo.
 echo -Movendo arquivos para a pasta Aplicativos...
 echo.
 echo ---------------------------------------------------------------------------
 echo.
-move "%dir%\*.exe" "%dirFolders%\Aplicativos"
+for %%a  in (*.exe) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders%\Aplicativos")
 echo.
 echo ___________________________________________________________________________
 
 :: Movendo Arquivos 
+
 echo.
 echo -Movendo arquivos para a pasta Arquivos:
 echo.
 echo ---------------------------------------------------------------------------
 echo Movendo arquivos para a pasta Android...
 echo.
-move "%dir%\*.apk" "%dirFolders_a%\Android"
-
+for %%a  in (*.apk) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Android")
 echo. 
 
 echo Movendo arquivos para a pasta Batch...
 echo.   
-move "%dir%\*.bat" "%dirFolders_a%\Batch"
-move "%dir%\*.cmd" "%dirFolders_a%\Batch"
-move "%dir%\*.masb" "%dirFolders_a%\Batch"
+for %%a  in (*.bat *.cmd *.masb) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Batch")
 echo. 
 
 echo Movendo arquivos para a pasta Isos...
 echo.
-move "%dir%\*.iso" "%dirFolders_a%\Isos"
-move "%dir%\*.img" "%dirFolders_a%\Isos"
-move "%dir%\*.udf" "%dirFolders_a%\Isos"
+for %%a  in (*.iso *.img *.udf) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Isos")
 echo. 
 
 echo Movendo arquivos para a pasta Javascript...
 echo.
-move "%dir%\*.js" "%dirFolders_a%\Javascript"
+for %%a  in (*.js) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Javascript")
 echo. 
 
 echo Movendo arquivos para a pasta HTML...
 echo.
-move "%dir%\*.html" "%dirFolders_a%\HTML"
+for %%a  in (*.html) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\HTML")
 echo. 
 
 echo Movendo arquivos para a Office Access...
 echo.
-move "%dir%\*.accdb" "%dirFolders_a%\Office Access"
-move "%dir%\*.accdt" "%dirFolders_a%\Office Access"
-move "%dir%\*.accde" "%dirFolders_a%\Office Access"
-move "%dir%\*.accdr" "%dirFolders_a%\Office Access"
-move "%dir%\*.mdb" "%dirFolders_a%\Office Access"
-move "%dir%\*.snp" "%dirFolders_a%\Office Access"
+for %%a  in (*.accdb *.accdt *.accde *.accdr *.mdb *.snp) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Office Access")
 echo. 
 
 echo Movendo arquivos para a pasta Office Excel...
 echo.
-move "%dir%\*.csv" "%dirFolders_a%\Office Excel"
-move "%dir%\*.xls" "%dirFolders_a%\Office Excel"
-move "%dir%\*.xlt" "%dirFolders_a%\Office Excel"
-move "%dir%\*.xlm" "%dirFolders_a%\Office Excel"
-move "%dir%\*.xlsx" "%dirFolders_a%\Office Excel"
-move "%dir%\*.xlsm" "%dirFolders_a%\Office Excel"
-move "%dir%\*.xltx" "%dirFolders_a%\Office Excel"
-move "%dir%\*.xltm" "%dirFolders_a%\Office Excel"
+for %%a  in (*.csv *.xls *.xlt *.xlm *.xlsx *.xlsm *.xltx *.xltm) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Office Excel")
 echo. 
 
 echo Movendo arquivos para a pasta Office PowerPoint...
 echo.
-move "%dir%\*.ppt" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.pot" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.pps" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.pptx" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.pptm" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.potx" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.ppam" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.ppsx" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.ppsm" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.sldx" "%dirFolders_a%\Office PowerPoint"
-move "%dir%\*.sldm" "%dirFolders_a%\Office PowerPoint"
+for %%a  in (*.ppt *.pot *.pps *.pptx *.pptm *.potx *.ppam *.ppsx *.ppsm *.sldx *.sldm) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Office PowerPoint")
 echo. 
 
 echo Movendo arquivos para a pasta Office Word...
 echo.
-move "%dir%\*.doc" "%dirFolders_a%\Office Word"
-move "%dir%\*.dot" "%dirFolders_a%\Office Word"
-move "%dir%\*.docx" "%dirFolders_a%\Office Word"
-move "%dir%\*.docm" "%dirFolders_a%\Office Word"
-move "%dir%\*.dotx" "%dirFolders_a%\Office Word"
-move "%dir%\*.dotm" "%dirFolders_a%\Office Word"
-move "%dir%\*.docb" "%dirFolders_a%\Office Word"
-move "%dir%\*.wbk" "%dirFolders_a%\Office Word"
+for %%a  in (*.doc *.dot *.docx *.docm *.dotx *.dotm *.docb *.wbk) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Office Word")
 echo. 
 
 echo Movendo arquivos para a pasta Partidas de Xadrez...
 echo.
-move "%dir%\*.pgn" "%dirFolders_a%\Partidas de Xadrez"
-move "%dir%\*.pks" "%dirFolders_a%\Partidas de Xadrez"
-move "%dir%\*.pgi" "%dirFolders_a%\Partidas de Xadrez"
+for %%a  in (*.pgn *.pks *.pgi) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Partidas de Xadrez")
 echo. 
 
 echo Movendo arquivos para a pasta Pdf...
 echo.
-move "%dir%\*.pdf" "%dirFolders_a%\Pdf"
+for %%a  in (*.pdf) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Pdf")
 echo. 
 
 echo Movendo arquivos para a pasta Pynthon...
 echo.
-move "%dir%\*.py" "%dirFolders_a%\Pynthon"
+for %%a  in (*.py) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Pynthon")
 echo. 
 
 echo Movendo arquivos para a pasta Roblox...
 echo.
-move "%dir%\*.rbxl" "%dirFolders_a%\Roblox"
+for %%a  in (*.rbxl) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Roblox")
 echo. 
 
 echo Movendo arquivos para a pasta Rtf...
 echo.
-move "%dir%\*.rtf" "%dirFolders_a%\Rtf"
+for %%a  in (*.rtf) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Rtf")
 echo. 
 
 echo Movendo arquivos para a pasta Torrents...
 echo.
-move "%dir%\*.torrent" "%dirFolders_a%\Torrents"
+for %%a  in (*.torrent) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Torrents")
 echo. 
 
 echo Movendo arquivos para a pasta Texto...
 echo.
-move "%dir%\*.txt" "%dirFolders_a%\Texto"
+for %%a  in (*.txt) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Texto")
 echo. 
 
 echo Movendo arquivos para a pasta Microsoft Installer...
 echo.
-move "%dir%\*.msi" "%dirFolders_a%\Microsoft Installer"
+for %%a  in (*.msi) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Microsoft Installer")
 echo. 
 
 echo Movendo arquivos para a pasta Winrar...
 echo.
-move "%dir%\*.7z" "%dirFolders_a%\Winrar"
-move "%dir%\*.rar" "%dirFolders_a%\Winrar"
-move "%dir%\*.zip" "%dirFolders_a%\Winrar"
+for %%a  in (*.7z *.rar *.zip) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Winrar")
 echo. 
 
 echo Movendo arquivos para a pasta Xps...
 echo.
-move "%dir%\*.xps" "%dirFolders_a%\Xps"
+for %%a  in (*.xps) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders_a%\Xps")
 echo -------------------------------------------------------------------------
 
-:: Movendo Atalhos
-::echo -Movendo arquivos para a pasta Atalhos...
-::echo ---------------------------------------------------------------------------
-::move "%dir%\*.lnk" "%dirFolders%\Atalhos"
 echo ___________________________________________________________________________
 
 :: Movendo µudios
@@ -268,37 +230,7 @@ echo -Movendo arquivos para a pasta µudios...
 echo.
 echo ---------------------------------------------------------------------------
 echo.
-move "%dir%\*.3ga" "%dirFolders%\µudios"
-move "%dir%\*.aac" "%dirFolders_a%\µudios"
-move "%dir%\*.aiff" "%dirFolders_a%\µudios"
-move "%dir%\*.amr" "%dirFolders_a%\µudios"
-move "%dir%\*.ape" "%dirFolders_a%\µudios"
-move "%dir%\*.arf" "%dirFolders_a%\µudios"
-move "%dir%\*.asf" "%dirFolders_a%\µudios"
-move "%dir%\*.asx" "%dirFolders_a%\µudios"
-move "%dir%\*.cda" "%dirFolders_a%\µudios"
-move "%dir%\*.dvf" "%dirFolders_a%\µudios"
-move "%dir%\*.flac" "%dirFolders_a%\µudios"
-move "%dir%\*.gp4" "%dirFolders_a%\µudios"
-move "%dir%\*.gp5" "%dirFolders_a%\µudios"
-move "%dir%\*.gpx" "%dirFolders_a%\µudios"
-move "%dir%\*.logic" "%dirFolders_a%\µudios"
-move "%dir%\*.m4a" "%dirFolders_a%\µudios"
-move "%dir%\*.m4b" "%dirFolders_a%\µudios"
-move "%dir%\*.m4p" "%dirFolders_a%\µudios"
-move "%dir%\*.midi" "%dirFolders_a%\µudios"
-move "%dir%\*.mp3" "%dirFolders_a%\µudios"
-move "%dir%\*.ogg" "%dirFolders_a%\µudios"
-move "%dir%\*.opus" "%dirFolders_a%\µudios"
-move "%dir%\*.pcm" "%dirFolders_a%\µudios"
-move "%dir%\*.rec" "%dirFolders_a%\µudios"
-move "%dir%\*.snd" "%dirFolders_a%\µudios"
-move "%dir%\*.sng" "%dirFolders_a%\µudios"
-move "%dir%\*.uax" "%dirFolders_a%\µudios"
-move "%dir%\*.wav" "%dirFolders_a%\µudios"
-move "%dir%\*.wma" "%dirFolders_a%\µudios"
-move "%dir%\*.wpl" "%dirFolders_a%\µudios"
-move "%dir%\*.zab" "%dirFolders_a%\µudios"
+for %%a  in (*.3ga *.aac *.aiff *.amr *.ape *.arf *.asf *.asx *.cda *.dvf *.flac *.gp4 *.gp5 *.gpx *.logic *.m4a *.m4b *.m4p *.midi *.mp3 *.ogg *.opus *.pcm *.rec *.snd *.sng *.uax *.wav *.wma *.wpl *.zab) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders%\Áudios")
 echo.
 echo ___________________________________________________________________________
 
@@ -308,31 +240,7 @@ echo -Movendo arquivos para a pasta Imagens...
 echo.
 echo ---------------------------------------------------------------------------
 echo.
-move "%dir%\*.bmp" "%dirFolders%\Imagens"
-move "%dir%\*.cpt" "%dirFolders%\Imagens"
-move "%dir%\*.dds" "%dirFolders%\Imagens"
-move "%dir%\*.dib" "%dirFolders%\Imagens"
-move "%dir%\*.dng" "%dirFolders%\Imagens"
-move "%dir%\*.emf" "%dirFolders%\Imagens"
-move "%dir%\*.gif" "%dirFolders%\Imagens"
-move "%dir%\*.heic," "%dirFolders%\Imagens"
-move "%dir%\*.ico" "%dirFolders%\Imagens"
-move "%dir%\*.icon" "%dirFolders%\Imagens"
-move "%dir%\*.jfif" "%dirFolders%\Imagens"
-move "%dir%\*.jpeg" "%dirFolders%\Imagens"
-move "%dir%\*.jpg" "%dirFolders%\Imagens"
-move "%dir%\*.pcx" "%dirFolders%\Imagens"
-move "%dir%\*.pic" "%dirFolders%\Imagens"
-move "%dir%\*.png" "%dirFolders%\Imagens"
-move "%dir%\*.psd" "%dirFolders%\Imagens"
-move "%dir%\*.psdx" "%dirFolders%\Imagens"
-move "%dir%\*.raw" "%dirFolders%\Imagens"
-move "%dir%\*.tga" "%dirFolders%\Imagens"
-move "%dir%\*.thm" "%dirFolders%\Imagens"
-move "%dir%\*.tif" "%dirFolders%\Imagens"
-move "%dir%\*.tiff" "%dirFolders%\Imagens"
-move "%dir%\*.wbmp" "%dirFolders%\Imagens"
-move "%dir%\*.zab" "%dirFolders_a%\Imagens"
+for %%a  in (*.bmp *.cpt *.dds *.dib *.dng *.emf *.gif *.heic *.ico *.icon *.jfif *.jpeg *.jpg *.pcx *.pic *.png *.psd *.psdx *.raw *.tga *.thm *.tif *.tiff *.wbmp *.zab) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders%\Imagens")
 echo.
 echo ___________________________________________________________________________
 
@@ -342,8 +250,7 @@ echo -Movendo arquivos para a pasta Livros...
 echo.
 echo ---------------------------------------------------------------------------
 echo.
-move "%dir%\*.epub" "%dirFolders%\Livros"
-move "%dir%\*.mobi" "%dirFolders_a%\Livros"
+for %%a  in (*.epub *.mobi) do (echo Arquivo movido: %%a && move "%%a" "Livros")
 echo.
 echo ___________________________________________________________________________
 
@@ -353,41 +260,7 @@ echo -Movendo arquivos para a pasta V¡deos...
 echo.
 echo ---------------------------------------------------------------------------
 echo.
-move "%dir%\*.264" "%dirFolders%\V¡deos"
-move "%dir%\*.3g2" "%dirFolders_a%\V¡deos"
-move "%dir%\*.3gp" "%dirFolders_a%\V¡deos"
-move "%dir%\*.arf" "%dirFolders_a%\V¡deos"
-move "%dir%\*.asf" "%dirFolders_a%\V¡deos"
-move "%dir%\*.asx" "%dirFolders_a%\V¡deos"
-move "%dir%\*.avi" "%dirFolders_a%\V¡deos"
-move "%dir%\*.bik" "%dirFolders_a%\V¡deos"
-move "%dir%\*.dash" "%dirFolders_a%\V¡deos"
-move "%dir%\*.dat" "%dirFolders_a%\V¡deos"
-move "%dir%\*.dvr" "%dirFolders_a%\V¡deos"
-move "%dir%\*.flv" "%dirFolders_a%\V¡deos"
-move "%dir%\*.h264" "%dirFolders_a%\V¡deos"
-move "%dir%\*.m2t" "%dirFolders_a%\V¡deos"
-move "%dir%\*.m2ts" "%dirFolders_a%\V¡deos"
-move "%dir%\*.m4v" "%dirFolders_a%\V¡deos"
-move "%dir%\*.mkv" "%dirFolders_a%\V¡deos"
-move "%dir%\*.mod" "%dirFolders_a%\V¡deos"
-move "%dir%\*.mov" "%dirFolders_a%\V¡deos"
-move "%dir%\*.mp4" "%dirFolders_a%\V¡deos"
-move "%dir%\*.mpeg" "%dirFolders_a%\V¡deos"
-move "%dir%\*.mpg" "%dirFolders_a%\V¡deos"
-move "%dir%\*.mts" "%dirFolders_a%\V¡deos"
-move "%dir%\*.ogv" "%dirFolders_a%\V¡deos"
-move "%dir%\*.prproj" "%dirFolders_a%\V¡deos"
-move "%dir%\*.rec" "%dirFolders_a%\V¡deos"
-move "%dir%\*.rmvb" "%dirFolders_a%\V¡deos"
-move "%dir%\*.swf" "%dirFolders_a%\V¡deos"
-move "%dir%\*.tod" "%dirFolders_a%\V¡deos"
-move "%dir%\*.tp" "%dirFolders_a%\V¡deos"
-move "%dir%\*.ts" "%dirFolders_a%\V¡deos"
-move "%dir%\*.vob" "%dirFolders_a%\V¡deos"
-move "%dir%\*.webm" "%dirFolders_a%\V¡deos"
-move "%dir%\*.wlmp" "%dirFolders_a%\V¡deos"
-move "%dir%\*.wmv" "%dirFolders_a%\V¡deos"
+for %%a  in (*.264 *.3g2 *.3gp *.arf *.asf *.asx *.avi *.bik *.dash *.dat *.dvr *.flv *.h264 *.m2t *.m2ts *.m4v *.mkv *.mod *.mov *.mp4 *.mpeg *.mpg *.mts *.ogv *.prproj *.rec *.rmvb *.swf *.tod *.tp *.ts *.vob *.webm *.wlmp *.wmv) do (echo Arquivo movido: %%a && move "%%a" "%dirFolders%\Vídeos")
 echo.
 
 IF %folder% EQU Adt goto Fim_Adt  
@@ -402,8 +275,6 @@ IF %folder% EQU Mus goto Fim_Mus
 cls
 
 set folder=Adt
-
-cd %dir%
 
 echo.
 echo µrea de Trabalho:
@@ -435,8 +306,6 @@ cls
 set folder=Dow
 set dir=%dow%
 
-cd %dow%
-
 echo.
 echo Downloads:
 echo.
@@ -465,8 +334,6 @@ cls
 
 set folder=Doc
 set dir=%doc%
-
-cd %doc%
 
 echo.
 echo Documentos:
@@ -497,8 +364,6 @@ cls
 set folder=Pic
 set dir=%pic%
 
-cd %pic%
-
 echo.
 echo Imagens:
 echo.
@@ -526,8 +391,6 @@ cls
 
 set folder=Mus
 set dir=%mus%
-
-cd %mus%
 
 echo.
 echo M£sicas:
